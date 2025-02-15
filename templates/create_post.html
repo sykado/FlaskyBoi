@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post - ZipShare</title>
+    <title>Create Post - MicroBlog</title>
     <style>
         :root {
             --primary-color: #1DA1F2;
@@ -63,10 +63,6 @@
             height: 100px;
         }
 
-        input[type="file"] {
-            margin-top: 5px;
-        }
-
         button {
             background-color: var(--primary-color);
             color: white;
@@ -86,7 +82,7 @@
 <body>
     <div class="container">
         <h1>Create Post</h1>
-        <form action="{{ url_for('create_post') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ url_for('create_post') }}" method="post">
             <div class="form-group">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
@@ -94,10 +90,6 @@
             <div class="form-group">
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="zipfile">Upload Zip File:</label>
-                <input type="file" id="zipfile" name="zipfile" accept=".zip" required>
             </div>
             <button type="submit">Create Post</button>
         </form>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZipShare</title>
+    <title>MicroBlog</title>
     <style>
         :root {
             --primary-color: #1DA1F2;
@@ -83,13 +83,14 @@
 
         .post-actions {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
         }
 
         .post-actions a {
             text-decoration: none;
             color: var(--primary-color);
             font-size: 14px;
+            margin-left: 15px;
         }
 
         .delete-btn {
@@ -100,7 +101,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Flasky</h1>
+            <h1>MicroBlog</h1>
             <a href="{{ url_for('create_post') }}" class="create-post-btn">Create Post</a>
         </header>
         
@@ -112,7 +113,6 @@
                 </div>
                 <div class="post-description">{{ post.description }}</div>
                 <div class="post-actions">
-                    <a href="{{ url_for('download_file', post_id=post.id) }}">Download Zip</a>
                     <a href="{{ url_for('edit_post', post_id=post.id) }}">Edit</a>
                     <a href="{{ url_for('delete_post', post_id=post.id) }}" class="delete-btn">Delete</a>
                 </div>
