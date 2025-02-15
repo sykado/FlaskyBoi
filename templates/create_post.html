@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post - MicroBlog</title>
+    <title>Create Post - Twitter Clone</title>
     <style>
         :root {
             --primary-color: #1DA1F2;
@@ -61,6 +61,7 @@
 
         textarea {
             height: 100px;
+            resize: vertical;
         }
 
         button {
@@ -82,16 +83,16 @@
 <body>
     <div class="container">
         <h1>Create Post</h1>
-        <form action="{{ url_for('create_post') }}" method="post">
+        <form action="{{ url_for('create_post') }}" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="4" maxlength="280" required></textarea>
             </div>
             <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
+                <label for="image">Image (optional):</label>
+                <input type="file" id="image" name="image" accept="image/*">
             </div>
-            <button type="submit">Create Post</button>
+            <button type="submit">Post</button>
         </form>
     </div>
 </body>
